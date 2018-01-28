@@ -18,6 +18,7 @@ public class SignalLine : MonoBehaviour {
         line.SetPosition(1, p2.transform.position);
 
         Debug.Log(isConnected());
+
 	}
 
     bool isConnected()
