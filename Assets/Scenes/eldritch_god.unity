@@ -172,7 +172,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4644740110464370, guid: 02587718b85944f689e2fdada3c1d661, type: 2}
       propertyPath: m_LocalScale.z
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114799569982399090, guid: 02587718b85944f689e2fdada3c1d661, type: 2}
@@ -334,6 +334,7 @@ MonoBehaviour:
   speed: 1.5
   target: {x: 0, y: 0, z: 0}
   pos: {fileID: 0}
+  targets: []
 --- !u!1 &1582871797 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1683021593705204, guid: a78b347f170eb44fb950db28048d8588,

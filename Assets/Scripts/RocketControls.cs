@@ -7,6 +7,9 @@ public class RocketControls : MonoBehaviour {
 	public float torque = 1; // torque multiplier
 	public float bouncy = 3; // how much the level boundaries bounce the object 
 
+	public string VerticalString;
+	public string HorizontalString;
+
 	private Rigidbody2D rb;
 	// Use this for initialization
 	void Start () {
@@ -39,11 +42,11 @@ public class RocketControls : MonoBehaviour {
 	}
 	void GetMovement() {
 		// Responds to movement inputs by the player by rotating and or thrusting the rocket.
-		if (Input.GetButton("Vertical")) {
-			rb.AddRelativeForce (Vector2.up * thrust * Input.GetAxis("Vertical"));
+		if (Input.GetButton(VerticalString)) {
+			rb.AddRelativeForce (Vector2.up * thrust * Input.GetAxis(VerticalString));
 		}
-		if (Input.GetButton ("Horizontal")) {
-			rb.AddTorque (torque * -1 * Input.GetAxis ("Horizontal"));
+		if (Input.GetButton (HorizontalString)) {
+			rb.AddRelativeForce (Vector2.right * thrust * Input.GetAxis(HorizontalString));
 		}
 
 	}
