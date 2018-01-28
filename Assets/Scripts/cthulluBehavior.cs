@@ -52,9 +52,25 @@ public class cthulluBehavior : MonoBehaviour {
 	}
 
 	void TargetClosetTeam(){
+		
 	}
 
 	void TargetTeamWithSmallestDistance(){
+		//Vector3.Distance(other.position, transform.position);
+
+	}
+
+	Vector3 GetMidPoint(Vector3 pos1, Vector3 pos2, float offset)
+	{
+
+		Vector3 dir = (pos2 - pos1).normalized ;
+		Vector3 perpDir = Vector3.Cross(dir, Vector3.right) ;
+
+		Vector3 midPoint = (pos1 + pos2) / 2f ;
+
+		Vector3 offsetPoint = midPoint + (perpDir * offset) ;
+
+		return offsetPoint ;
 	}
 
 	void Wander() {
