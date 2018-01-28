@@ -13,6 +13,7 @@ public class Signal : MonoBehaviour {
 	public float epsilon = .02f;
 	private bool isLive = false;
 	private string otherTeam;
+    private string myTeam;
 	public float score = 0;
 	// Score = a * e^(b*t)
 	public float a = 1f;
@@ -23,12 +24,13 @@ public class Signal : MonoBehaviour {
 	void Start () {
 		startSignal (source, target);
 		getOtherTeam ();
+        myTeam = source.tag;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		moveSignal ();
-		scoreText.text = "Score: " + Mathf.Round(score + line.score);
+        scoreText.text = myTeam + ": " + Mathf.Round(score);// + line.score);
 	}
 
 	void getUserInput() {
@@ -73,10 +75,10 @@ public class Signal : MonoBehaviour {
 			distort ();
 		}
 		else if (col.gameObject.CompareTag (target.gameObject.tag) || col.gameObject.CompareTag(source.gameObject.tag)) {
-			Debug.Log ("lol");
+			//Debug.Log ("lol");
 		}
 		else {
-			Debug.Log ("Destruction");
+			//Debug.Log ("Destruction");
 			destroy ();
 		}
 	}
@@ -112,7 +114,7 @@ public class Signal : MonoBehaviour {
 		}
 	}
 	void updateScore() {
-		score += a * Mathf.Exp (b * time);
-		Debug.Log (score);
+		score += Mathf.Min(a * Mathf.Exp (b * time), 3500);
+		//Debug.Log (score);
 	}
 }

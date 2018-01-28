@@ -24,7 +24,7 @@ public class SignalLine : MonoBehaviour {
 		line.SetPosition(0, p1.transform.position);
         line.SetPosition(1, p2.transform.position);
 		updateScore ();
-		//Debug.Log(isConnected());
+		Debug.Log(isConnected());
 
 	}
 
@@ -82,6 +82,6 @@ public class SignalLine : MonoBehaviour {
 			score += a * Mathf.Exp (b);
 			time = 0f;
 		}
-		Debug.Log (score);
+		//Debug.Log (score);
 	}
 }
