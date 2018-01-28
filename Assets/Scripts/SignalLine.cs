@@ -6,6 +6,12 @@ public class SignalLine : MonoBehaviour {
     public LineRenderer line;
     public GameObject p1;
     public GameObject p2;
+	public float score = 0;
+	private float time = 0;
+	public float dt = 1/60;
+	// Score = a*e^(b*t)
+	public float a = .1f;
+	public float b = .2f;
 
 	// Use this for initialization
 	void Start () {
@@ -17,7 +23,7 @@ public class SignalLine : MonoBehaviour {
         
 		line.SetPosition(0, p1.transform.position);
         line.SetPosition(1, p2.transform.position);
-
+		updateScore ();
 		//Debug.Log(isConnected());
 
 	}
@@ -68,5 +74,14 @@ public class SignalLine : MonoBehaviour {
 		Vector3 difference = a.transform.position - b.transform.position;
 		float dist = difference.magnitude;
 		return difference / dist;
+	}
+	void updateScore() {
+		if (isConnected ()) {
+			time += dt;
+		} else {
+			score += a * Mathf.Exp (b);
+			time = 0f;
+		}
+		Debug.Log (score);
 	}
 }
