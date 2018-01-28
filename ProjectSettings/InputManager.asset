@@ -297,7 +297,7 @@ InputManager:
     m_Name: Vertical3
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: '[2]'
+    negativeButton: '[5]'
     positiveButton: '[8]'
     altNegativeButton: 
     altPositiveButton: 
