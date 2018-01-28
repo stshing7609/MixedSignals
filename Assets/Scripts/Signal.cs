@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Signal : MonoBehaviour {
 	public GameObject source;
@@ -12,6 +13,11 @@ public class Signal : MonoBehaviour {
 	public float epsilon = .02f;
 	private bool isLive = false;
 	private string otherTeam;
+	public float score = 0;
+	// Score = a * e^(b*t)
+	public float a = 1f;
+	public float b = .5f;
+	public Text scoreText;
 
 	// Use this for initialization
 	void Start () {
@@ -22,6 +28,7 @@ public class Signal : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		moveSignal ();
+		scoreText.text = "Score: " + Mathf.Round(score + line.score);
 	}
 
 	void getUserInput() {
@@ -76,7 +83,9 @@ public class Signal : MonoBehaviour {
 
 	void goooooooool(){
 		// Insert code to update score here
+
 		isLive = false;
+		updateScore ();
 		startSignal (target, source);
 		//GameObject temp = source;
 		//source = target;
@@ -101,5 +110,9 @@ public class Signal : MonoBehaviour {
 			otherTeam = "Team1";
 			break;
 		}
+	}
+	void updateScore() {
+		score += a * Mathf.Exp (b * time);
+		Debug.Log (score);
 	}
 }

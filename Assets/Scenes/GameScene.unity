@@ -194,7 +194,11 @@ MonoBehaviour:
   line: {fileID: 543568315}
   velocity: 1.5
   dt: 0.02
-  epsilon: 0.7
+  epsilon: 1
+  score: 0
+  a: 1
+  b: 0.5
+  scoreText: {fileID: 448372737}
 --- !u!58 &110804544
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -684,6 +688,10 @@ MonoBehaviour:
   line: {fileID: 543568316}
   p1: {fileID: 2042602408}
   p2: {fileID: 1946727401}
+  score: 0
+  dt: 0
+  a: 0.1
+  b: 0.2
 --- !u!120 &543568316
 LineRenderer:
   m_ObjectHideFlags: 0
